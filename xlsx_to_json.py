@@ -17,32 +17,36 @@ def to_str(v):
 
 xl = pd.read_excel(XLSX, sheet_name=None)
 
-# ── NODES ──
+# ── NODES (컬럼 인덱스 기준) ──
+# 0:class, 1:sub class, 2:dcterms:identifier, 3:title(한글), 4:title(영문),
+# 5:start_date, 6:end_date, 7:유형, 8:genreValue, 9:URL, 10:SameAs, 11:adress, 12:bibo Info
 df_nodes = xl['nodes']
 nodes = []
 for _, r in df_nodes.iterrows():
     node = {
-        'id':      to_str(r.get('dcterms:identifier')),
-        'title':   to_str(r.get('title(한국)')),
-        'class':   to_str(r.get('class')),
-        'subclass': to_str(r.get('sub class')),
-        'address': to_str(r.get('adress')),
-        'url':     to_str(r.get('URL')),
-        'sameAs':  to_str(r.get('SameAs')),
+        'id':       to_str(r.iloc[2]),
+        'title':    to_str(r.iloc[3]),
+        'class':    to_str(r.iloc[0]),
+        'subclass': to_str(r.iloc[1]),
+        'address':  to_str(r.iloc[11]),
+        'url':      to_str(r.iloc[9]),
+        'sameAs':   to_str(r.iloc[10]),
     }
     if node['id']:
         nodes.append(node)
 
-# ── LINKS ──
+# ── LINKS (컬럼 인덱스 기준) ──
+# 0:class(subject), 1:ID(subject), 2:class(Object), 3:IDObject),
+# 4:relation(한), 5:relation(영), 6:채록문 페이지, 7:채록문 시리즈번호
 df_links = xl['links']
 links = []
 for _, r in df_links.iterrows():
     link = {
-        'source':   to_str(r.get('ID(subject)')),
-        'target':   to_str(r.get('IDObject)')),
-        'relation': to_str(r.get('relation(한)')),
-        'page':     to_str(r.get('채록번 면번호')),
-        'series':   to_str(r.get('채록번 시리즈번호')),
+        'source':   to_str(r.iloc[1]),
+        'target':   to_str(r.iloc[3]),
+        'relation': to_str(r.iloc[4]),
+        'page':     to_str(r.iloc[6]),
+        'series':   to_str(r.iloc[7]),
     }
     if link['source'] and link['target']:
         links.append(link)
