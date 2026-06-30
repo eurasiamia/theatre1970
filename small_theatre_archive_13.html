@@ -188,6 +188,16 @@
   /* 탭3 Mirador */
   #tab3 { flex-direction: column; overflow: hidden; }
   #mirador-container { flex: 1; width: 100%; min-height: 0; }
+  #mirador-nav {
+    flex-shrink: 0; padding: 8px 16px; border-bottom: 1px solid #ddd;
+    display: flex; gap: 8px; background: #fff;
+  }
+  #mirador-nav button {
+    font-size: 0.78rem; padding: 4px 14px; border: 1px solid #bbb;
+    background: none; cursor: pointer; font-family: inherit; color: #555;
+    letter-spacing: 0.04em;
+  }
+  #mirador-nav button:hover { background: #f0f0f0; color: #111; }
 
   /* Leaflet 커스텀 마커 */
   .custom-marker {
@@ -400,6 +410,10 @@
 </div>
 
 <div id="tab3" class="tab-content">
+  <div id="mirador-nav">
+    <button onclick="showTab(1)">← 지도</button>
+    <button onclick="showTab(2)">시맨틱 네트워크</button>
+  </div>
   <div id="mirador-container"></div>
 </div>
 
