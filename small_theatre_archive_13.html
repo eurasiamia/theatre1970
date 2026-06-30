@@ -28,7 +28,7 @@
     gap: 20px;
     flex-shrink: 0;
     position: relative;
-    z-index: 1000;
+    z-index: 1200;
   }
   header h1 {
     font-size: 1.8rem;
@@ -48,7 +48,7 @@
     display: flex;
     flex-shrink: 0;
     position: relative;
-    z-index: 1000;
+    z-index: 1200;
   }
   nav button {
     padding: 12px 28px;
@@ -590,6 +590,15 @@ async function loadNetworkData() {
   ]);
   ALL_NODES = await nodesRes.json();
   ALL_LINKS = await linksRes.json();
+  nodeById = {};
+  ALL_NODES.forEach(n => nodeById[n.id] = n);
+  adjacency = {};
+  ALL_LINKS.forEach(l => {
+    if (!adjacency[l.source]) adjacency[l.source] = [];
+    if (!adjacency[l.target]) adjacency[l.target] = [];
+    adjacency[l.source].push({ neighbor: l.target, relation: l.relation });
+    adjacency[l.target].push({ neighbor: l.source, relation: l.relation });
+  });
 }
 
 
@@ -619,16 +628,8 @@ function genreLabel(genreStr) {
   return parts.length ? parts.join(', ') : '연극';
 }
 
-const nodeById = {};
-ALL_NODES.forEach(n => nodeById[n.id] = n);
-
-const adjacency = {};
-ALL_LINKS.forEach(l => {
-  if (!adjacency[l.source]) adjacency[l.source] = [];
-  if (!adjacency[l.target]) adjacency[l.target] = [];
-  adjacency[l.source].push({ neighbor: l.target, relation: l.relation });
-  adjacency[l.target].push({ neighbor: l.source, relation: l.relation });
-});
+let nodeById = {};
+let adjacency = {};
 
 let currentClass = 'schema:Place';
 let activeNodeId = null;
