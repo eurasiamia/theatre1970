@@ -51,6 +51,17 @@ for _, r in df_links.iterrows():
     if link['source'] and link['target']:
         links.append(link)
 
+# foaf:Person ↔ Performance 관계에서 채록문 정보 제거
+node_info = {n['id']: n for n in nodes}
+for l in links:
+    src_n = node_info.get(l['source'], {})
+    tgt_n = node_info.get(l['target'], {})
+    is_person = lambda n: n.get('subclass') == 'foaf:Person'
+    is_perf   = lambda n: (n.get('class') or '').lower() == 'performance'
+    if (is_person(src_n) and is_perf(tgt_n)) or (is_person(tgt_n) and is_perf(src_n)):
+        l['page'] = None
+        l['series'] = None
+
 with open(NODES_OUT, 'w', encoding='utf-8') as f:
     json.dump(nodes, f, ensure_ascii=False, indent=2)
 
