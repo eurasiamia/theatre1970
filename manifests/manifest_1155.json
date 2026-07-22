@@ -1,0 +1,364 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155.json",
+  "type": "Manifest",
+  "label": {
+    "ko": [
+      "1960-70년대 동인제극단 선언문"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/1",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "극단 시민극장_선언문(관련기사)"
+        ]
+      },
+      "height": 1311,
+      "width": 1203,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/1/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/1/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EA%B7%B9%EB%8B%A8%20%EC%8B%9C%EB%AF%BC%EA%B7%B9%EC%9E%A5_%EC%84%A0%EC%96%B8%EB%AC%B8(%EA%B4%80%EB%A0%A8%EA%B8%B0%EC%82%AC).jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1203,
+                "height": 1311
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/2",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "극단 우리극장_창단공연(1979)_대표글"
+        ]
+      },
+      "height": 1600,
+      "width": 1482,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/2/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/2/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EA%B7%B9%EB%8B%A8%20%EC%9A%B0%EB%A6%AC%EA%B7%B9%EC%9E%A5_%EC%B0%BD%EB%8B%A8%EA%B3%B5%EC%97%B0(1979)_%EB%8C%80%ED%91%9C%EA%B8%80.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1482,
+                "height": 1600
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/3",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "극단76_프로그램북(선언문같은)"
+        ]
+      },
+      "height": 1669,
+      "width": 1374,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/3/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/3/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EA%B7%B9%EB%8B%A876_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EB%B6%81(%EC%84%A0%EC%96%B8%EB%AC%B8%EA%B0%99%EC%9D%80).jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1374,
+                "height": 1669
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/4",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "극단무리_홍보문구"
+        ]
+      },
+      "height": 1656,
+      "width": 1204,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/4/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/4/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EA%B7%B9%EB%8B%A8%EB%AC%B4%EB%A6%AC_%ED%99%8D%EB%B3%B4%EB%AC%B8%EA%B5%AC.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1204,
+                "height": 1656
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/5",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "극단원각사_선언문"
+        ]
+      },
+      "height": 1834,
+      "width": 1294,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/5/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/5/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EA%B7%B9%EB%8B%A8%EC%9B%90%EA%B0%81%EC%82%AC_%EC%84%A0%EC%96%B8%EB%AC%B8.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1294,
+                "height": 1834
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/6",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "실험극장 창단선언문_유민영_우리시대 연극운동사_"
+        ]
+      },
+      "height": 598,
+      "width": 900,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/6/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/6/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%8B%A4%ED%97%98%EA%B7%B9%EC%9E%A5%20%EC%B0%BD%EB%8B%A8%EC%84%A0%EC%96%B8%EB%AC%B8_%EC%9C%A0%EB%AF%BC%EC%98%81_%EC%9A%B0%EB%A6%AC%EC%8B%9C%EB%8C%80%20%EC%97%B0%EA%B7%B9%EC%9A%B4%EB%8F%99%EC%82%AC_.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 900,
+                "height": 598
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/7",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "여인극장_창단목표_김윤정논문45쪽_한국연극사7-유민영-극단여인극장사27쪽"
+        ]
+      },
+      "height": 768,
+      "width": 868,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/7/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/7/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%97%AC%EC%9D%B8%EA%B7%B9%EC%9E%A5_%EC%B0%BD%EB%8B%A8%EB%AA%A9%ED%91%9C_%EA%B9%80%EC%9C%A4%EC%A0%95%EB%85%BC%EB%AC%B845%EC%AA%BD_%ED%95%9C%EA%B5%AD%EC%97%B0%EA%B7%B9%EC%82%AC7-%EC%9C%A0%EB%AF%BC%EC%98%81-%EA%B7%B9%EB%8B%A8%EC%97%AC%EC%9D%B8%EA%B7%B9%EC%9E%A5%EC%82%AC27%EC%AA%BD.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 868,
+                "height": 768
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/8",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "연우무대_선언문비슷"
+        ]
+      },
+      "height": 1674,
+      "width": 954,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/8/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/8/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%97%B0%EC%9A%B0%EB%AC%B4%EB%8C%80_%EC%84%A0%EC%96%B8%EB%AC%B8%EB%B9%84%EC%8A%B7.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 954,
+                "height": 1674
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/9",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "전위무대_선언 일부(기사)"
+        ]
+      },
+      "height": 846,
+      "width": 1264,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/9/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/9/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%A0%84%EC%9C%84%EB%AC%B4%EB%8C%80_%EC%84%A0%EC%96%B8%20%EC%9D%BC%EB%B6%80(%EA%B8%B0%EC%82%AC).jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1264,
+                "height": 846
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/10",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "제작극회_선언_공연연보"
+        ]
+      },
+      "height": 1701,
+      "width": 2079,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/10/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/10/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%A0%9C%EC%9E%91%EA%B7%B9%ED%9A%8C_%EC%84%A0%EC%96%B8_%EA%B3%B5%EC%97%B0%EC%97%B0%EB%B3%B4.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 2079,
+                "height": 1701
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/11",
+      "type": "Canvas",
+      "label": {
+        "ko": [
+          "중앙극단과 중앙소극장_소개글"
+        ]
+      },
+      "height": 1612,
+      "width": 1213,
+      "items": [
+        {
+          "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/11/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/11/anno",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://archive.org/download/20260623_20260623_1155/%EC%A4%91%EC%95%99%EA%B7%B9%EB%8B%A8%EA%B3%BC%20%EC%A4%91%EC%95%99%EC%86%8C%EA%B7%B9%EC%9E%A5_%EC%86%8C%EA%B0%9C%EA%B8%80.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "width": 1213,
+                "height": 1612
+              },
+              "target": "https://eurasiamia.github.io/theatre1970/manifests/manifest_1155/canvas/11"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
