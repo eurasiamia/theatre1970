@@ -18669,7 +18669,7 @@
     "series": null
   },
   {
-    "source": "A00864",
+    "source": "P_0003898",
     "target": "P00047",
     "relation": "작가",
     "page": null,
@@ -29666,14 +29666,14 @@
     "series": null
   },
   {
-    "source": "A00864",
+    "source": "P_0003898",
     "target": "P00012",
     "relation": "작가",
     "page": null,
     "series": null
   },
   {
-    "source": "A00864",
+    "source": "P_0003898",
     "target": "P00012",
     "relation": "연출자",
     "page": null,
