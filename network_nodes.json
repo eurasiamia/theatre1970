@@ -7515,15 +7515,6 @@
     "sameAs": null
   },
   {
-    "id": "A00864",
-    "title": "오태석",
-    "class": "foaf:Agent",
-    "subclass": "foaf:Person",
-    "address": null,
-    "url": null,
-    "sameAs": null
-  },
-  {
     "id": "A00866",
     "title": "오현숙",
     "class": "foaf:Agent",
