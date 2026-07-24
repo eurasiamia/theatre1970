@@ -27061,5 +27061,221 @@
     "address": null,
     "url": null,
     "sameAs": null
+  },
+  {
+    "id": "C0009",
+    "title": "상업극 논란",
+    "class": "Concept",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0003",
+    "title": "근대 연극장의 재편과 흥행 개념",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0004",
+    "title": "1970년대 평단의 상업성에 대한 태도 연구",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0005",
+    "title": "1970년대 연극평론가들의 부상과 정전화의 시작",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0006",
+    "title": "동인제극단의 연극대중화 양상",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0007",
+    "title": "1950-60년대 연극의 아마추어리즘 비판과 전문화 추구의 의미",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0008",
+    "title": "1960년대 한국 연극의 소통 방식과 현대극으로의 전환",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0009",
+    "title": "1960년대 한국 연극 예술의 정체성과 상업성 담론",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0010",
+    "title": "김의경 연구: 연극 활동을 중심으로",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0011",
+    "title": "1960년대 연극대중화 운동과 대중 담론",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0012",
+    "title": "한국연극과 젊은 의식",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0013",
+    "title": "한국연극사-근대편",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0014",
+    "title": "한국근대연극비평사 연구",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0015",
+    "title": "한국근대연극사",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0016",
+    "title": "극단 현대극장 뮤직 드라마 빠담 빠담 빠담의 대중성 획득과 그 의미",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0017",
+    "title": "연극인 김의경론-연극과 현실 무대와 진실을 잇는 가교",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0018",
+    "title": "1930년대 한국 신극운동의 전개과정과 담론 구조",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0019",
+    "title": "1970년대 연극평론의 해외연극론 수용 연구",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0020",
+    "title": "1970년대 연극비평 제도화 시기의 연극비평지 연극평론의 역할과 의미",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0021",
+    "title": "연극은 무엇을 할 수 있는가",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0022",
+    "title": "한국의 소극장과 연극운동",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0023",
+    "title": "1920년대 연극론의 구조와 이념-1920년대 전반기 연극론의 계몽의식을 중심으로",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0024",
+    "title": "한국연극의 쟁점과 반성",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": null,
+    "sameAs": null
+  },
+  {
+    "id": "BI0025",
+    "title": "1970년대 한국 연극의 상업성 담론과 연극계의 분화",
+    "class": "Bibo",
+    "subclass": null,
+    "address": null,
+    "url": "https://doi.org/10.20864/skl.2024.1.81.241",
+    "sameAs": null
   }
 ]
