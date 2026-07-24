@@ -12033,15 +12033,6 @@
     "sameAs": null
   },
   {
-    "id": "A01381",
-    "title": "정진수",
-    "class": "foaf:Agent",
-    "subclass": "foaf:Person",
-    "address": null,
-    "url": null,
-    "sameAs": null
-  },
-  {
     "id": "A01382",
     "title": "정진호",
     "class": "foaf:Agent",
@@ -14042,15 +14033,6 @@
   {
     "id": "A01620",
     "title": "한상옇",
-    "class": "foaf:Agent",
-    "subclass": "foaf:Person",
-    "address": null,
-    "url": null,
-    "sameAs": null
-  },
-  {
-    "id": "A01621",
-    "title": "한상철",
     "class": "foaf:Agent",
     "subclass": "foaf:Person",
     "address": null,
