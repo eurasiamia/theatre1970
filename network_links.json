@@ -20461,7 +20461,7 @@
     "series": null
   },
   {
-    "source": "A01381",
+    "source": "P_0005847",
     "target": "P00084",
     "relation": "번역",
     "page": null,
@@ -25648,7 +25648,7 @@
     "series": null
   },
   {
-    "source": "A01381",
+    "source": "P_0005847",
     "target": "P00083",
     "relation": "번역",
     "page": null,
@@ -29862,7 +29862,7 @@
     "series": null
   },
   {
-    "source": "A01381",
+    "source": "P_0005847",
     "target": "P00082",
     "relation": "연출자",
     "page": null,
@@ -30464,7 +30464,7 @@
     "series": null
   },
   {
-    "source": "A01621",
+    "source": "P_0006878",
     "target": "P00056",
     "relation": "번역",
     "page": null,
