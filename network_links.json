@@ -33654,5 +33654,257 @@
     "relation": "연구대상",
     "page": null,
     "series": null
+  },
+  {
+    "source": "P00100",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "P00109",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0003",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0004",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0005",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0006",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0007",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0008",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0009",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0010",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0011",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0012",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0013",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0014",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0015",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0016",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0017",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0018",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0019",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0020",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0021",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0022",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0023",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0024",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "C0009",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0004873",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0005847",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0005152",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0001199",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0003898",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0006274",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0006878",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0004052",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "P_0004544",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "A01514",
+    "relation": "키워드",
+    "page": null,
+    "series": null
+  },
+  {
+    "source": "BI0025",
+    "target": "A00738",
+    "relation": "키워드",
+    "page": null,
+    "series": null
   }
 ]
