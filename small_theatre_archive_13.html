@@ -361,6 +361,7 @@
   }
   .analysis-btn:hover { background: #f4f0fa; }
   .analysis-btn.active { background: #6a4fa0; color: #fff; }
+  .analysis-btn-wide { width: 100%; display: block; margin-top: 5px; box-sizing: border-box; }
   #analysis-status { font-size: 0.64rem; color: #999; min-height: 1em; }
   #analysis-panel { display: none; flex-direction: column; overflow-y: auto; border-bottom: 1px solid #eee; max-height: 42%; flex-shrink: 0; }
   #analysis-panel.visible { display: flex; }
@@ -423,6 +424,7 @@
           <button id="centrality-btn" class="analysis-btn" title="전체 네트워크 기준 매개중심성 계산">중심성 분석</button>
           <button id="community-btn" class="analysis-btn" title="전체 네트워크 기준 커뮤니티 탐지(라벨 전파)">커뮤니티 탐지</button>
         </div>
+        <button id="crossover-btn" class="analysis-btn analysis-btn-wide" title="서로 다른 극단의 공연에 겹쳐 출연한 배우와 그 극단들, 그리고 직연·학연·영향 등으로 연결된 인물을 함께 보여줍니다">PD시스템 보기</button>
         <div id="analysis-status"></div>
       </div>
       <div id="ns-tabs"></div>
@@ -685,6 +687,8 @@ let centralityCache = {};
 let communityCache = {};
 let currentCentrality = null;
 let currentCommunity = null;
+let crossoverMode = false;
+let crossoverData = null;
 const CREATIVE_ROLES = ['연출자','작가','출연','제작','창작단체','번역','기획'];
 const COMMUNITY_PALETTE = ['#e6194b','#3cb44b','#4363d8','#f58231','#911eb4','#46f0f0','#f032e6','#bcf60c','#fabebe','#008080','#e6beff','#9a6324','#800000','#aaffc3','#808000','#000075'];
 
@@ -1199,6 +1203,144 @@ document.getElementById('community-btn').addEventListener('click', () => {
   }
 });
 
+// ── PD시스템: 교차출연 배우 + 극단 + 직연/학연/영향 등 관계망 ──
+function isRelationshipType(rel) {
+  return !!rel && (rel.startsWith('직연') || rel.startsWith('학연') || rel.startsWith('영향') || rel.startsWith('혈연') || rel.startsWith('지연'));
+}
+
+function computeCrossoverData() {
+  const perfToCompany = {};
+  ALL_LINKS.forEach(l => {
+    if (l.relation !== '창작단체') return;
+    const s = nodeById[l.source], t = nodeById[l.target];
+    let perf, company;
+    if (s && s.class === 'performance') { perf = s; company = t; }
+    else if (t && t.class === 'performance') { perf = t; company = s; }
+    if (perf && company && company.subclass === 'foaf:Orgarnization') {
+      if (!perfToCompany[perf.id]) perfToCompany[perf.id] = new Set();
+      perfToCompany[perf.id].add(company.id);
+    }
+  });
+
+  const actorToPerfs = {};
+  ALL_LINKS.forEach(l => {
+    if (l.relation !== '출연') return;
+    const s = nodeById[l.source], t = nodeById[l.target];
+    let actor, perf;
+    if (s && s.class === 'foaf:Agent' && t && t.class === 'performance') { actor = s; perf = t; }
+    else if (t && t.class === 'foaf:Agent' && s && s.class === 'performance') { actor = t; perf = s; }
+    if (actor && perf) {
+      if (!actorToPerfs[actor.id]) actorToPerfs[actor.id] = new Set();
+      actorToPerfs[actor.id].add(perf.id);
+    }
+  });
+
+  const crossoverIds = new Set();
+  const crossoverActors = [];
+  const nodeSet = new Map();
+  const linkList = [];
+
+  Object.entries(actorToPerfs).forEach(([actorId, perfSet]) => {
+    const companyCounts = new Map();
+    perfSet.forEach(pid => {
+      if (perfToCompany[pid]) perfToCompany[pid].forEach(cid => {
+        companyCounts.set(cid, (companyCounts.get(cid) || 0) + 1);
+      });
+    });
+    if (companyCounts.size >= 2) {
+      crossoverIds.add(actorId);
+      crossoverActors.push({ id: actorId, companyCount: companyCounts.size });
+      nodeSet.set(actorId, nodeById[actorId]);
+      companyCounts.forEach((cnt, cid) => {
+        nodeSet.set(cid, nodeById[cid]);
+        linkList.push({ source: actorId, target: cid, relation: `교차출연(${cnt}편)`, page: null, series: null });
+      });
+    }
+  });
+
+  const relLinks = ALL_LINKS.filter(l => isRelationshipType(l.relation) && (crossoverIds.has(l.source) || crossoverIds.has(l.target)));
+  const connectorIds = new Set();
+  relLinks.forEach(l => {    if (nodeById[l.source]) nodeSet.set(l.source, nodeById[l.source]);
+    if (nodeById[l.target]) nodeSet.set(l.target, nodeById[l.target]);
+    if (!crossoverIds.has(l.source)) connectorIds.add(l.source);
+    if (!crossoverIds.has(l.target)) connectorIds.add(l.target);
+    linkList.push(l);
+  });
+
+  crossoverActors.sort((a, b) => b.companyCount - a.companyCount);
+  return {
+    nodes: [...nodeSet.values()].filter(Boolean),
+    links: linkList,
+    actors: crossoverActors,
+    connectorIds,
+    relLinkCount: relLinks.length
+  };
+}
+
+function renderCrossoverGraph() {
+  if (!crossoverData) crossoverData = computeCrossoverData();
+  document.getElementById('network-empty').style.display = 'none';
+  document.getElementById('network-legend').classList.add('visible');
+  document.getElementById('net-filter-bar').classList.add('visible');
+  currentGraphNodes = crossoverData.nodes;
+  currentGraphLinks = crossoverData.links;
+  const centerId = crossoverData.actors.length ? crossoverData.actors[0].id : (crossoverData.nodes[0] && crossoverData.nodes[0].id);
+  currentCenterNodeId = centerId;
+  buildRelationFilter(crossoverData.links);
+  buildClassFilter(crossoverData.nodes);
+  const { nodes, links } = getFilteredData();
+  drawGraph(nodes, links, centerId);
+  showCrossoverPanel();
+}
+
+function showCrossoverPanel() {
+  const panel = document.getElementById('analysis-panel');
+  panel.classList.add('visible');
+  panel.innerHTML = '';
+  const header = document.createElement('div');
+  header.className = 'analysis-panel-header';
+  header.textContent = `PD시스템 — 교차출연 배우 ${crossoverData.actors.length}명 · 관계망 엣지 ${crossoverData.relLinkCount}건`;
+  panel.appendChild(header);
+  crossoverData.actors.forEach((a, i) => {
+    const n = nodeById[a.id];
+    if (!n) return;
+    const item = document.createElement('div');
+    item.className = 'rank-item';
+    const idxS = document.createElement('span'); idxS.className = 'rank-idx'; idxS.textContent = (i + 1) + '.';
+    const titleS = document.createElement('span'); titleS.textContent = n.title || n.id;
+    const scoreS = document.createElement('span'); scoreS.className = 'rank-score'; scoreS.textContent = a.companyCount + '개 단체';
+    item.appendChild(idxS); item.appendChild(titleS); item.appendChild(scoreS);
+    item.addEventListener('click', () => {
+      activeNodeId = a.id; currentClass = n.class; searchQuery = '';
+      document.getElementById('ns-search').value = '';
+      crossoverMode = false;
+      document.getElementById('crossover-btn').classList.remove('active');
+      document.getElementById('analysis-panel').classList.remove('visible');
+      buildTabs(); buildList(); renderGraph(a.id); updateHash(a.id);
+    });
+    panel.appendChild(item);
+  });
+}
+
+document.getElementById('crossover-btn').addEventListener('click', () => {
+  crossoverMode = !crossoverMode;
+  document.getElementById('crossover-btn').classList.toggle('active', crossoverMode);
+  if (crossoverMode) {
+    centralityMode = false; communityMode = false;
+    document.getElementById('centrality-btn').classList.remove('active');
+    document.getElementById('community-btn').classList.remove('active');
+    renderCrossoverGraph();
+  } else {
+    document.getElementById('analysis-panel').classList.remove('visible');
+    document.getElementById('network-empty').style.display = 'block';
+    document.getElementById('network-legend').classList.remove('visible');
+    document.getElementById('net-filter-bar').classList.remove('visible');
+    const svg = document.getElementById('network-svg');
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    currentGraphNodes = []; currentGraphLinks = []; currentCenterNodeId = null;
+  }
+});
+
 // ── Render Graph ──
 function renderGraph(centerNodeId) {
   const centerNode = nodeById[centerNodeId];
@@ -1390,9 +1532,17 @@ function drawGraph(graphNodes, graphLinks, centerNodeId) {
     const r = radiusFor(n);
     const circle = document.createElementNS(ns,'circle');
     circle.setAttribute('r', r);
-    circle.setAttribute('fill', (communityMode && currentCommunity && currentCommunity[n.id]!==undefined)
-      ? COMMUNITY_PALETTE[currentCommunity[n.id] % COMMUNITY_PALETTE.length]
-      : (CLASS_COLORS[n.class]||'#ccc'));
+    let fillColor;
+    if (communityMode && currentCommunity && currentCommunity[n.id]!==undefined) {
+      fillColor = COMMUNITY_PALETTE[currentCommunity[n.id] % COMMUNITY_PALETTE.length];
+    } else if (crossoverMode && crossoverData) {
+      if (n.subclass === 'foaf:Orgarnization') fillColor = '#E8A23D';
+      else if (crossoverData.connectorIds.has(n.id)) fillColor = '#7B9FE0';
+      else fillColor = CLASS_COLORS[n.class]||'#ccc';
+    } else {
+      fillColor = CLASS_COLORS[n.class]||'#ccc';
+    }
+    circle.setAttribute('fill', fillColor);
     circle.setAttribute('stroke','#fff');
     circle.setAttribute('stroke-width', n.id===centerNodeId?'3':'2');
 
@@ -1592,6 +1742,20 @@ function buildLegend(nodes) {
       const item=document.createElement('div'); item.className='legend-item';
       const dot=document.createElement('div'); dot.className='legend-dot'; dot.style.background=COMMUNITY_PALETTE[c%COMMUNITY_PALETTE.length];
       const lbl=document.createElement('span'); lbl.textContent='커뮤니티 '+(c+1);
+      item.appendChild(dot); item.appendChild(lbl); legend.appendChild(item);
+    });
+    return;
+  }
+  if (crossoverMode) {
+    const items = [
+      {color:'#85C9A0', label:'교차 출연 배우'},
+      {color:'#E8A23D', label:'극단(창작단체)'},
+      {color:'#7B9FE0', label:'직연·학연·영향 등으로 연결된 인물'}
+    ];
+    items.forEach(it=>{
+      const item=document.createElement('div'); item.className='legend-item';
+      const dot=document.createElement('div'); dot.className='legend-dot'; dot.style.background=it.color;
+      const lbl=document.createElement('span'); lbl.textContent=it.label;
       item.appendChild(dot); item.appendChild(lbl); legend.appendChild(item);
     });
     return;
