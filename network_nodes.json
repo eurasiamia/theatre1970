@@ -14825,8 +14825,8 @@
  {
   "id": "A01788",
   "title": "박미란",
-  "class": null,
-  "subclass": null,
+  "class": "foaf:Agent",
+  "subclass": "foaf:Person",
   "address": null,
   "url": null,
   "sameAs": null
@@ -14834,8 +14834,8 @@
  {
   "id": "A01789",
   "title": "김유미",
-  "class": null,
-  "subclass": null,
+  "class": "foaf:Agent",
+  "subclass": "foaf:Person",
   "address": null,
   "url": null,
   "sameAs": null
@@ -15014,7 +15014,7 @@
  {
   "id": "BI0020",
   "title": "동인제서 PD제로",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15023,7 +15023,7 @@
  {
   "id": "BI0021",
   "title": "프로듀서 시스팀 발족-<티타임의 정사> 공연",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15032,7 +15032,7 @@
  {
   "id": "BI0022",
   "title": "활기띠는 연극계",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15041,7 +15041,7 @@
  {
   "id": "BI0023",
   "title": "연극붐에 찬물",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15050,7 +15050,7 @@
  {
   "id": "BI0024",
   "title": "최불암 추송웅 등 극단 설립",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15059,7 +15059,7 @@
  {
   "id": "BI0025",
   "title": "1970년대 한국 연극의 상업성 담론과 연극계의 분화",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
@@ -15068,7 +15068,7 @@
  {
   "id": "BI0026",
   "title": "1970년대 평단의 상업성에 대한 태도 연구",
-  "class": null,
+  "class": "BIBO",
   "subclass": null,
   "address": null,
   "url": null,
