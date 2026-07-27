@@ -33334,20 +33334,6 @@
   "series": null
  },
  {
-  "source": "BI0001",
-  "target": "C0009",
-  "relation": "키워드",
-  "page": null,
-  "series": null
- },
- {
-  "source": "BI0002",
-  "target": "C0009",
-  "relation": "키워드",
-  "page": null,
-  "series": null
- },
- {
   "source": "BI0003",
   "target": "C0009",
   "relation": "키워드",
