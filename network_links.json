@@ -33496,6 +33496,13 @@
  },
  {
   "source": "BI0025",
+  "target": "C0009",
+  "relation": "키워드",
+  "page": null,
+  "series": null
+ },
+ {
+  "source": "BI0025",
   "target": "A01788",
   "relation": "연구자",
   "page": null,
