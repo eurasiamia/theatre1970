@@ -875,7 +875,7 @@ function getFilteredData() {
   const nodeIds = new Set(nodes.map(n => n.id));
   const links = currentGraphLinks.filter(l =>
     nodeIds.has(l.source) && nodeIds.has(l.target) &&
-    (activeRelations.size === 0 || activeRelations.has(l.relation))
+    (activeRelations.size === 0 || !activeRelations.has(l.relation))
   );
   return { nodes, links };
 }
