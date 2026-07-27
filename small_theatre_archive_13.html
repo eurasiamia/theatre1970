@@ -1462,14 +1462,14 @@ function drawGraph(graphNodes, graphLinks, centerNodeId) {
     degree[l.source] = (degree[l.source]||0)+1;
     degree[l.target] = (degree[l.target]||0)+1;
   });
-  const maxDegree = Math.max(1, ...graphNodes.map(n=>degree[n.id]||0));
+  const maxDegree = Math.max(1, ...graphNodes.map(n=>degree[n.id]||0)); const actorCompanyCount = {}; if (crossoverMode && crossoverData) { crossoverData.actors.forEach(a => { actorCompanyCount[a.id] = a.companyCount; }); } const maxCompanyCount = Math.max(1, ...Object.values(actorCompanyCount));
   const MIN_R = 14, MAX_R = 32;
   function radiusFor(n) {
     let rr;
     if (centralityMode && currentCentrality) {
       const maxC = Math.max(1e-9, ...graphNodes.map(nn => currentCentrality[nn.id]||0));
       const score = currentCentrality[n.id]||0;
-      rr = MIN_R + (MAX_R-MIN_R)*Math.sqrt(score/maxC);
+      rr = MIN_R + (MAX_R-MIN_R)*Math.sqrt(score/maxC); } else if (crossoverMode && actorCompanyCount[n.id]!==undefined) { rr = MIN_R + (MAX_R-MIN_R)*Math.sqrt(actorCompanyCount[n.id]/maxCompanyCount);
     } else {
       const d = degree[n.id]||0;
       rr = MIN_R + (MAX_R-MIN_R)*Math.sqrt(d/maxDegree);
