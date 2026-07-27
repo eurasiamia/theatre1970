@@ -33390,6 +33390,13 @@
   "series": null
  },
  {
+  "source": "BI0010",
+  "target": "A01758",
+  "relation": "관련자료",
+  "page": null,
+  "series": null
+ },
+ {
   "source": "BI0011",
   "target": "C0009",
   "relation": "키워드",
