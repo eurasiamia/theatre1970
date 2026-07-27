@@ -450,6 +450,7 @@
       <span class="filter-label">클래스</span>
       <div id="class-toggles"></div>
     </div>
+    <button id="cast-view-btn" class="analysis-btn analysis-btn-wide" title="현재 중심 노드가 극단(단체)일 때, 그 극단의 전체 출연 배우를 교차출연 여부와 함께 한번에 표시합니다">이 극단 전체 출연진 보기</button>
   </div>
 </div>
 
@@ -689,6 +690,7 @@ let currentCentrality = null;
 let currentCommunity = null;
 let crossoverMode = false;
 let crossoverData = null;
+let castViewData = null;
 const CREATIVE_ROLES = ['연출자','작가','출연','제작','창작단체','번역','기획'];
 const COMMUNITY_PALETTE = ['#e6194b','#3cb44b','#4363d8','#f58231','#911eb4','#46f0f0','#f032e6','#bcf60c','#fabebe','#008080','#e6beff','#9a6324','#800000','#aaffc3','#808000','#000075'];
 
@@ -701,6 +703,40 @@ function dedupeLinks(links) {
     seen.add(key); return true;
   });
 }
+
+function showFullCast(companyId) {
+  const perfIds = ALL_LINKS.filter(l => l.relation==='창작단체' && l.source===companyId).map(l=>l.target);
+  if (!perfIds.length) { alert('이 노드는 극단(창작단체) 공연 기록이 없습니다.'); return; }
+  const castLinks = ALL_LINKS.filter(l => l.relation==='출연' && perfIds.includes(l.target));
+  const actorIds = [...new Set(castLinks.map(l=>l.source))];
+  const exclusiveMap = {};
+  actorIds.forEach(aid => {
+    const hasOther = ALL_LINKS.some(l => l.relation==='출연' && l.source===aid && !perfIds.includes(l.target));
+    exclusiveMap[aid] = !hasOther;
+  });
+  castViewData = { companyId, perfIds, actorIds, exclusiveMap };
+  crossoverMode = false;
+  document.getElementById('crossover-btn').classList.remove('active');
+  const existingIds = new Set([companyId, ...perfIds, ...actorIds]);
+  const graphNodes = Array.from(existingIds).filter(id=>nodeById[id]).map(id=>nodeById[id]);
+  const graphLinks = dedupeLinks(ALL_LINKS.filter(l => existingIds.has(l.source) && existingIds.has(l.target)));
+  currentGraphNodes = graphNodes; currentGraphLinks = graphLinks; currentCenterNodeId = companyId;
+  document.getElementById('network-empty').style.display = 'none';
+  document.getElementById('network-legend').classList.add('visible');
+  document.getElementById('net-filter-bar').classList.add('visible');
+  buildRelationFilter(graphLinks); buildClassFilter(graphNodes);
+  const { nodes, links } = getFilteredData();
+  drawGraph(nodes, links, companyId);
+}
+
+document.getElementById('cast-view-btn').addEventListener('click', () => {
+  castViewData = null;
+  const center = nodeById[currentCenterNodeId];
+  if (!center || center.subclass !== 'foaf:Orgarnization') {
+    alert('극단(단체) 노드를 중심으로 선택했을 때만 사용할 수 있습니다.'); return;
+  }
+  showFullCast(currentCenterNodeId);
+});
 
 // ── Sidebar tabs ──
 function buildTabs() {
@@ -828,6 +864,7 @@ function bfsPath(startId, endId) {
 }
 
 function renderPath(pathIds) {
+  castViewData = null;
   const graphNodes = pathIds.map(id => nodeById[id]).filter(Boolean);
   const graphLinks = [];
   for (let i = 0; i < pathIds.length - 1; i++) {
@@ -1278,6 +1315,7 @@ function computeCrossoverData() {
 }
 
 function renderCrossoverGraph() {
+  castViewData = null;
   if (!crossoverData) crossoverData = computeCrossoverData();
   document.getElementById('network-empty').style.display = 'none';
   document.getElementById('network-legend').classList.add('visible');
@@ -1345,6 +1383,7 @@ document.getElementById('crossover-btn').addEventListener('click', () => {
 function renderGraph(centerNodeId) {
   const centerNode = nodeById[centerNodeId];
   if (!centerNode) return;
+  castViewData = null;
   document.getElementById('network-empty').style.display = 'none';
   document.getElementById('network-legend').classList.add('visible');
   document.getElementById('net-filter-bar').classList.add('visible');
@@ -1369,6 +1408,7 @@ function renderGraph(centerNodeId) {
 
 function expandGraph(nodeId) {
   simRunning = false;
+  castViewData = null;
   const svg = document.getElementById('network-svg');
   const existingIds = new Set(Array.from(svg.querySelectorAll('.net-node')).map(el => el.dataset.id));
   (adjacency[nodeId]||[]).forEach(n => existingIds.add(n.neighbor));
@@ -1539,6 +1579,8 @@ function drawGraph(graphNodes, graphLinks, centerNodeId) {
       if (n.subclass === 'foaf:Orgarnization') fillColor = '#E8A23D';
       else if (crossoverData.connectorIds.has(n.id)) fillColor = '#7B9FE0';
       else fillColor = CLASS_COLORS[n.class]||'#ccc';
+    } else if (castViewData && castViewData.exclusiveMap[n.id] !== undefined) {
+      fillColor = (n.id === castViewData.companyId) ? '#E8A23D' : (castViewData.exclusiveMap[n.id] ? '#9BBF9B' : '#E0527B');
     } else {
       fillColor = CLASS_COLORS[n.class]||'#ccc';
     }
