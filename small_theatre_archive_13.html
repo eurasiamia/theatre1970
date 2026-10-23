@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>한국 소극장 시맨틱 아카이브 1970s–</title>
+<title>한국 소극장 시맨틱 아카이브 1970s–1980s</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
@@ -493,6 +493,10 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '© OpenStreetMap © CARTO',
   maxZoom: 19
 }).addTo(map);
+
+// 첫 화면에서 지도 크기를 다시 계산 (레이아웃·글꼴이 늦게 잡혀 타일이 깨지는 문제 방지)
+window.addEventListener('load', () => { map.invalidateSize(); setTimeout(() => map.invalidateSize(), 300); });
+if (window.ResizeObserver) new ResizeObserver(() => map.invalidateSize()).observe(document.getElementById('map'));
 
 // 커스텀 아이콘
 function makeIcon() {
